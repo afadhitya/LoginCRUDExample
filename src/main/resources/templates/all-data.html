@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div th:include="navbar"></div>
+<table>
+    <thead>
+        <tr>
+            <th> Email </th>
+            <th> Name </th>
+            <th> Role </th>
+            <th> Status </th>
+            <th th:if="${userLogin.role}=='Administrator'"> Edit </th>
+            <th th:if="${userLogin.role}=='Administrator'"> Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${users.empty}">
+            <td colspan="2"> No Users Available </td>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td><span th:text="${user.email}"> Title </span></td>
+            <td><span th:text="${user.name}"> Author </span></td>
+            <td><span th:text="${user.role}"> Author </span></td>
+            <td><span th:text="${user.status}"> Author </span></td>
+             <td th:if="${userLogin.role}=='Administrator'"><a th:href="@{/{id}/edit-all (id=${user.id})}">Edit</a></td>
+             <td th:if="${userLogin.role}=='Administrator'"><a th:href="@{'user/{id}/delete'(id=${user.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+</html>
