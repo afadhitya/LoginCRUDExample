@@ -5,6 +5,7 @@ Tahap menjalankan aplikasi:
 2. Buat database dengan nama "login_example"
 3. Biarkan database kosong
 4. Jalankan project spring boot seperti biasa
+5. Untuk memulai harus membuat akun terlebih dahulu, klik link "signup"
 
 Keterangan Role
 - Administrator -> dapat mengubah data semua yang terdaftar kecuali password
